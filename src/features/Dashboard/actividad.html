@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Shared/style/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Community - Actividad</title>
+</head>
+<body>
+     <header class="header">
+        <div class="header__logo"><a href="../Reportes/index.html"><img src="/img/img-2logo.PNG" alt="Community - Volver al inicio" width="125"></a></div>
+        <nav class="header__nav">
+            <a href="../Reportes/reportes.html" class="nav-button"><i class="fa-solid fa-file"></i> Reportes</a>
+            <a href="../Dashboard/actividad.html" class="nav-button active"><i class="fa-solid fa-chart-simple"></i> Actividad</a>
+        </nav>
+        <div class="header__user-actions">
+             <a href="../../auth/login/Login.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="../perfil/usuario.html"><img src="/img/icono-usuario.png" alt="Avatar del usuario" class="user-avatar"></a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="stats-grid">
+            <div class="stat-card">
+                <p class="stat-title">Total de reportes</p>
+                <p id="total-reportes" class="stat-number">Cargando...</p>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-title">Reportes atendidos</p>
+                <p id="reportes-atendidos" class="stat-number">Cargando...</p>
+            </div>
+            <div class="stat-card">
+            <p class="stat-title">Tiempo promedio en resolver</p>
+            <p id="tiempo-resolver" class="stat-number">Cargando...</p>
+            </div>
+
+        </section>
+     <section class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Gráfica de Reportes</h2>
+                <div class="download-button">
+                </div>
+            </div>
+
+            <div class="chart-area" style="position: relative; height: 400px; width: 100%;">
+                <canvas id="reportesChart" style="background-color: white;"></canvas>
+            </div>
+            <div id="contenido-pdf" style="display: none;"></div>
+        </section>
+    </main>
+    <script src="../Dashboard/obtenertotalAPI.js"></script>
+    <script src="../Dashboard/chartConfig.js    "></script>
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

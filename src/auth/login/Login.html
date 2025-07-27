@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Login</title>
+    <link rel="stylesheet" href="../login/Login.css">
+    <link rel="stylesheet" href="../../Shared/style/Preloader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <div id="preloader" class="preloader">
+        <div class="loader"></div>
+        <p>Cargando CommUnity...</p>
+  </div>
+   <script src="/src/Shared/Script/preloader.js"></script>
+    <div class="container">
+        <div class="left-section">
+            <div class="form-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../../../img/logo_CommUnity.png" alt="Logo de Community" class="logo-image">
+                </div>
+                
+                <!-- Cabecera -->
+                <div class="header">
+                    <h1 class="welcome-title">¡Bienvenido!</h1>
+                    <p class="welcome-subtitle">Somos una plataforma para la comunidad</p>
+                </div>
+
+                <!-- Formulario -->
+                <form class="formulario" id="formulario" action="/login" method="POST">
+                    <div class="formulario_mensaje" id="formulario_mensaje">
+                        <p><i class="fa-solid fa-circle-exclamation"></i> <span id="mensaje_texto">Por favor, verifica tus credenciales.</span></p>
+                    </div>
+                    <div class="formulario-mensaje-exito" id="formulario_mensaje_exito">
+                         <p><i class="fa-solid fa-circle-check"></i> ¡Login exitoso! </p>
+                    </div>
+            
+                    <div class="formulario_grupo" id="group_correo">
+                        <div class="formulario_input">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="correo" name="correo" required placeholder="correo@ejemplo.com">
+                        </div>
+                        <div class="formulario_validacion-estado" id="correo_estado">
+                            <p class="input-error">El correo debe tener @ y terminar en .com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="formulario_grupo" id="group_password">
+                        <div class="formulario_input">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="contraseña" name="contraseña" required placeholder="Contraseña">
+                        </div>
+                        <div class="formulario_validacion-estado" id="password_estado">
+                            <p class="input-error">La contraseña debe tener al menos 8 caracteres</p>
+                        </div>
+                    </div>
+                    
+                    <div class="formulario_grupo">
+                        <button type="submit" class="btn-login">Iniciar Sesión</button>
+                    </div>
+                    
+                    <p class="register-text">
+                        ¿No tienes cuenta? <a href="/src/auth/Register/Registrar.html" class="register-link">Regístrate</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Sección derecha -->
+        <div class="right-section">
+            <div class="image-container">
+                <img src="../../../img/-secundary.jpg" alt="Ilustración de comunidad" class="main-image">
+            </div>
+        </div>
+    </div>
+    <script src="../login/fetchLog.js"></script>
+</body>
+</html>

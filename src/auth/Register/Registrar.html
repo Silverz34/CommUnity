@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Registro</title>
+    <link rel="stylesheet" href="../Register/Resgistrar.css">
+    <link rel="stylesheet" href="../../Shared/style/Preloader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <div id="preloader" class="preloader">
+        <div class="loader"></div>
+        <p>Cargando CommUnity...</p>
+  </div>
+   <script src="/src/Shared/Script/preloader.js"></script>
+    <div class="container">
+        <div class="left-section">
+            <div class="image-container">
+                <img src="/img/-secundary.jpg" alt="Ilustración de comunidad" class="main-image"/>
+            </div>
+        </div>
+        
+        <div class="right-section" style="max-height: 100%;">
+            <div class="logo">
+                <img src="/img/logo_CommUnity.png" alt="Logo de Community" class="logo-image"/>
+            </div>
+    
+            <div class="header">
+                <h1>¡Regístrate!</h1>
+                <p>Únete a nuestra comunidad</p>
+            </div>
+           <div class="formulario_grupo">
+              <div class="formulario-mensaje-exito" id="formulario_mensaje_exito">
+                 <p><i class="fa-solid fa-circle-check"></i> ¡Registro exitoso!</p>
+              </div>
+           </div>
+            <div class="formulario_mensaje" id="formulario_mensaje">
+             <p><i class="fa-solid fa-circle-exclamation"></i> Por favor, completa el formulario correctamente.</p>
+            </div>
+            <form class="formulario" id="formulario" method="POST" action="/Registrar">
+
+    <div class="formulario_grupo" id="group_seleccion">
+       <div class="formulario_select-group">
+            <select name="seccion" id="seccion" class="formulario_select">
+             <option value="" selected disabled> Seccion</option>
+            </select>
+                <div class="formulario_validacion-estado" id="seccion_estado">
+                <p class="input-error"> selecciona una sección</p>
+            </div>
+
+            <select name="calle" id="calle" class="formulario_select">
+                <option value="" selected disabled>Selecciona una calle</option>
+            </select>
+            <div class="formulario_validacion-estado" id="calle_estado">
+             <p class="input-error">Selecciona una calle</p>
+            </div>
+
+        </div>
+    </div>
+
+                
+                <div class="formulario_grupo" id="group_nombre">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Juan">
+                    </div>
+                    <div class="formulario_validacion-estado" id="nombre_estado">
+                        <p class="input-error">debe tener entre 1 y 18 caracteres y solo letras</p>
+                    </div>
+                </div>
+
+                <div class="formulario_grupo" id="group_apellido_paterno">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="apellido_paterno" name="apellido_paterno" required placeholder="Perez">
+                    </div>
+                    <div class="formulario_validacion-estado" id="apellido_paterno_estado">
+                        <p class="input-error">debe tener entre 1 y 18 caracteres y solo letras</p>
+                    </div>
+                </div>
+                
+                <div class="formulario_grupo" id="group_apellido_materno">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="apellido_materno" name="apellido_materno" required placeholder="Gonzales">
+                    </div>
+                    <div class="formulario_validacion-estado" id="apellido_materno_estado">
+                        <p class="input-error">debe tener entre 1 y 18 caracteres y solo letras</p>
+                    </div>
+                </div>
+                <div class="formulario_grupo" id="group_correo">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="correo" name="correo" required placeholder="gonzalesperezjuan@gmail.com">
+                    </div>
+                    <div class="formulario_validacion-estado" id="correo_estado">
+                        <p class="input-error">El correo debe tener @ y terminar en .com</p>
+                    </div>
+                </div>
+                
+                <div class="formulario_grupo" id="group_password">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Contraseña123">
+                    </div>
+                    <div class="formulario_validacion-estado" id="password_estado">
+                        <p class="input-error">La contraseña debe tener entre 8-10 caracteres,
+                         Mayuscula,Minusculas y caracteres /$+*][_]-
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="formulario_grupo" id="group_confirm_password">
+                    <div class="formulario_input">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirma tu contraseña">
+                    </div>
+                    <div class="formulario_validacion-estado" id="confirm_password_estado">
+                        <p class="input-error">Las contraseñas no coinciden</p>
+                    </div>
+                </div> 
+                <button type="submit" class="formulario-btn">Registrarse</button>    
+                <p class="login-link">¿Ya tienes una cuenta? <a href="../login/Login.html">Iniciar Sesión</a></p>
+            </form>
+        
+        </div>
+    </div>
+    <script src="../Register/Register.js"></script>
+    <script src="../Register/fetch.js"></script>
+</body>
+</html>

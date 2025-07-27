@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Shared/style/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Community-Usuario</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <a href="../Reportes/index.html"><img src="/img/img-2logo.PNG" alt="Community - Volver al inicio" width="125"></a>
+        </div>
+        <nav class="header__nav">
+            <a href="../Gestion/index_admin.html" class="nav-button"><i class="fa-solid fa-file"></i> Reportes</a>
+            <a href="../avisos/avisos.html" class="nav-button"><i class="fa-solid fa-circle-exclamation"></i> Avisos</a>
+            <a href="../Dashboard/actividad_admin.html" class="nav-button"><i class="fa-solid fa-chart-simple"></i>Actividad</a>
+        </nav>
+        <div class="header__user-actions active">
+             <a href="../../auth/login/Login.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="../perfil/usuario.html"><img src="/img/icono-admin.png" alt="Avatar del usuario" class="user-avatar"></a>
+        </div>
+    </header>
+
+     <main class="main-content">
+        <section class="controls">
+            <div class="user-info">
+                <img src="/img/ajustes.png"Avatar del usuario" class="user-avatar">
+                <div class="user-data">
+                    <h1 class="user-name">Jose Pablo Vázquez</h1>
+                    <p class="user-email">jose.vazquez@example.com</p>
+                    <p class="user-role">Colóno</p>
+                </div>
+            </div>
+            <h1 class="titulo3">Mis reportes</h1>
+            <div class="action-buttons2">
+                <button class="btn btn-primary" id="create-report-btn"><i class="fa-solid fa-plus"></i> Crear Reporte</button>
+                <button class="btn btn-secondary" id="create-notice-btn"><i class="fa-solid fa-plus"></i> Crear Aviso</button>
+            </div>
+        </section>
+
+         <section class="reports-grid" id="reports-grid">
+            <article class="card">
+                <div class="card-header">
+                    <span class="card-profile"><img src="https://i.pravatar.cc/40" alt="Avatar" class="user-avatar"></span>
+                    <span class="card-author">Jose Pablo Vázquez</span><span class="card-date">08 Jun 2025</span><span class="card-section">Sección 2</span>
+                </div>
+                <div class="card-body"><p>Lámpara del parque principal dañada... <a href="#" class="read-more">Leer mas...</a></p></div>
+                <div class="card-footer"><span class="tag tag-resolved">Resuelto</span><span class="tag tag-category">Alumbrado</span></div>
+            </article>
+
+            <div id="reportModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2>Reportar un Incidente</h2>
+        <form id="reportForm" novalidate>
+            <div class="form-group">
+                <label for="incidentType">Tipo de Incidente:</label>
+                <select id="incidente" name="incidentType" class="form-select" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="5">Alumbrado Público</option>
+                    <option value="6">Fuga de agua</option>
+                    <option value="3">Basura</option>
+                    <option value="1">Ruido excesivo</option>
+                    <option value="2">Problema de alcohol</option>
+                    <option value="4">Asalto</option>
+                    <option value="7">Drenaje Tapado</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="seccion">Sección:</label>
+                <select id="seccion" name="seccion" class="form-select" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="1">Sección 3</option>
+                    <option value="2">Sección 4</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="calle">Calle:</label>
+                <select id="calle" name="calle" class="form-select"required>
+                    <option value="" >Primero selecciona una sección</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="reference">Referencia:</label>
+                <input type="text" id="referencia" name="reference" class="form-control" placeholder="Referencia del incidente" required>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="descripcion" maxlength="255" class="form-control" rows="4"></textarea>
+                <small id="contador-descripcion" class="text-muted">0 / 255 caracteres</small>
+
+            </div>
+            <div class="d-flex gap-3 mt-4">
+                 <button type="button" class="btn btn-secondary w-100" id="close-report-btn">Cancelar</button>
+                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="modal-overlay" id="crear-anuncio">
+        <div class="modal-content">
+            <h2>Aviso a la comunidad</h2>
+            <form id="crear-anuncio-form" novalidate>
+                <div class="form-group">
+                    <label for="notice-title">Título</label>
+                    <input type="text" id="anuncio-titulo" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="notice-description">Descripción</label>
+                    <textarea id="anuncio-descripcion" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="d-flex gap-3 mt-4">
+                    <button type="button" class="btn btn-secondary w-100 close-modal-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Gestion/crearReporteAPI.js"></script>
+    <script src="../perfil/reportesUsuarioAPI.js"></script>
+    <script src="../avisos/crearAvisoAPI.js"></script>
+</body>
+</html>

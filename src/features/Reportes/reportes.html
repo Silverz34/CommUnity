@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Shared/style/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Community - Reportes</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__logo">
+            <a href="../Reportes/reportes.html"><img src="/img/img-2logo.PNG" alt="Community - Volver al inicio" width="125"></a>
+        </div>
+        <nav class="header__nav">
+            <a href="../Reportes/reportes.html" class="nav-button active"><i class="fa-solid fa-file"></i> Reportes</a>
+            <a href="../Dashboard/actividad.html" class="nav-button"><i class="fa-solid fa-chart-simple"></i> Actividad</a>
+        </nav>
+        <div class="header__user-actions">
+            <a href="../../auth/login/Login.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="../perfil/usuario.html"><img src="/img/icono-usuario.png" alt="Avatar del usuario" class="user-avatar"></a>
+        </div>
+    </header>
+ 
+    <main class="main-content">
+        <section class="controls">
+            <div class="search-container">
+                <button class="filter-button" id="filter-toggle">
+                  Filtros <i class="fa-solid fa-filter"></i>
+                </button>
+                <div class="filter-dropdown" id="filter-dropdown">
+                    <div class="dropdown-item has-submenu">
+                        <span>Estados <i class="fa-solid fa-chevron-right"></i></span>
+                        <div class="submenu">
+                            <a href="1" class="submenu-item">Pendiente</a>
+                            <a href="2" class="submenu-item">Resuelto</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item has-submenu">
+                        <span>Incidentes <i class="fa-solid fa-chevron-right"></i></span>
+                        <div class="submenu">
+                        <a href="1" class="submenu-item">Ruido excesivo</a>
+                        <a href="2" class="submenu-item">Problemas de alcohol</a>
+                        <a href="3" class="submenu-item">Basura</a>
+                        <a href="4" class="submenu-item">Asaltos</a>
+                        <a href="5" class="submenu-item">Alumbrado público</a>
+                        <a href="6" class="submenu-item">Fuga de agua</a>
+                        <a href="7" class="submenu-item">Drenaje tapado</a>
+                    </div>
+                    </div>
+                    <div class="dropdown-item has-submenu">
+                        <span>Secciones <i class="fa-solid fa-chevron-right"></i></span>
+                        <div class="submenu">
+                        <a href="1" class="submenu-item">Sección 3</a>
+                        <a href="2" class="submenu-item">Sección 4</a></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary" id="limpiarFiltros"><i class="fa-solid fa-eraser"></i> limpiar</button>
+            <h1 class="titulo">Reportes</h1>
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="create-report-btn"><i class="fa-solid fa-plus"></i> Crear</button>
+                <button class="btn btn-secondary" id="show-notices-btn"><i class="fa-solid fa-bell"></i> Avisos</button>
+            </div>
+        </section>
+
+        <section class="reports-grid" id="reports-grid">    
+        </section>
+
+    </main>
+    
+    <div id="reportModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2>Reportar un Incidente</h2>
+        <form id="reportForm" novalidate>
+            <div class="form-group">
+                <label for="incidentType">Tipo de Incidente:</label>
+                <select id="incidente" name="incidentType" class="form-select" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="5">Alumbrado Público</option>
+                    <option value="6">Fuga de agua</option>
+                    <option value="3">Basura</option>
+                    <option value="1">Ruido excesivo</option>
+                    <option value="2">Problema de alcohol</option>
+                    <option value="4">Asalto</option>
+                    <option value="7">Drenaje Tapado</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="seccion">Sección:</label>
+                <select id="seccion" name="seccion" class="form-select" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="1">Sección 3</option>
+                    <option value="2">Sección 4</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="calle">Calle:</label>
+                <select id="calle" name="calle" class="form-select"required>
+                    <option value="" >Primero selecciona una sección</option>
+                </select>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="reference">Referencia:</label>
+                <input type="text" id="referencia" name="reference" class="form-control" placeholder="Referencia del incidente" required>
+                <div class="invalid-feedback">Campo incompleto, rellene el campo</div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="descripcion" maxlength="255" class="form-control" rows="4"></textarea>
+                <small id="contador-descripcion" class="text-muted">0 / 255 caracteres</small>
+
+            </div>
+            <div class="d-flex gap-3 mt-4">
+                 <button type="button" class="btn btn-secondary w-100" id="close-report-btn">Cancelar</button>
+                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <aside class="notices-panel" id="notices-panel">
+        <div class="panel-header">
+            <h3>Avisos para la comunidad</h3><button class="close-panel-btn" id="close-notices-btn">&times;</button>
+        </div>
+        <nav class="panel-tabs"><button class="tab-button active">Todos</button><button class="tab-button">Actuales</button><button class="tab-button">Pasados</button></nav>
+        <div class="notices-list">
+            <article class="notice-item">
+                <div class="notice-title"><h4><i class="fa-solid fa-user-shield"></i> Administrador 1</h4><a href="#"><i class="fa-solid fa-chevron-right"></i></a></div><h5>Mantenimiento de alumbrado</h5><p>Se realizará mantenimiento preventivo a todos los postes de la calle Zafiro este sábado 8 de Junio... <a href="#">Leer más</a></p><time>8 de jun 2025</time>
+            </article>
+            <article class="notice-item">
+                <div class="notice-title"><h4><i class="fa-solid fa-user-shield"></i> Administrador 2</h4><a href="#"><i class="fa-solid fa-chevron-right"></i></a></div><h5>Corte de agua programado</h5><p>La compañia de agua realizará trabajos de mantenimiento que afectarán el suministro... <a href="#">Leer más</a></p><time>9 de jun 2025</time>
+            </article>
+             <article class="notice-item">
+                <div class="notice-title"><h4><i class="fa-solid fa-user-shield"></i> Protección Civil</h4><a href="#"><i class="fa-solid fa-chevron-right"></i></a></div><h5>Campaña de vacunación</h5><p>Jornada de vacunación contra la influenza en el parque central, no faltes... <a href="#">Leer más</a></p><time>10 de jun 2025</time>
+            </article>
+        </div>
+    </aside>
+    <dynamic-pagination id="pagination-container"></dynamic-pagination>
+
+   <script src="../Gestion/crearReporteAPI.js"></script>
+    <script src="../Reportes/avisosAPI.js" type="module"></script>
+    <script src="../Reportes/filtro.js" type="module"></script>
+    <script type="module" src="../../Shared/Script/DynamicPagination.js"></script>
+</body>
+</html>

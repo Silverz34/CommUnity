@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommUnity - Informa, Crea y Avisa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/landing/Style.css">
+</head>
+<body>
+  <div id="preloader" class="preloader">
+    <div class="loader"></div>
+    <p>Cargando CommUnity...</p>
+  </div>
+   <script src="/src/Shared/Script/preloader.js"></script>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand me-auto" href="#home"></a>
+                <img src="../img/logo_CommUnity.png" alt="CommUnity Logo" class="logo-img">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav navbar-nav-custom">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conocenos">Conócenos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#herramientas">Herramientas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">CommUnity: Informa, Crea y Avisa.</h1>
+                    <p class="hero-subtitle">Informarse es la llave para el bienestar social y comunitario.</p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
+                        <button class="btn btn-hero" onclick="window.location.href='src/auth/Register/Registrar.html'">Regístrate</button>
+                        <button class="btn btn-inicio" onclick="window.location.href='src/auth/login/Login.html'">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="conocenos" class="features-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <h2 class="features-title">¿Qué es CommUnity?</h2>
+                    <p class="features-text">Somos una plataforma exclusiva para los residentes de Jardines del Pedregal, diseñada para informar sobre problemas y facilitar la comunicación con los líderes de la colonia.</p>
+                    <p class="features-text fw-semibold">¡Juntos, hacemos de nuestro barrio un lugar más seguro y conectado!</p>
+                </div>
+                <div class="col-lg-6 order-lg-1 text-center mb-4 mb-lg-0">
+                    <img src="./img/img_2.jpg" alt="Ilustración de CommUnity" class="features-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="herramientas" class="tools-section">
+  <div class="container">
+    <h2 class="tools-title text-center">¿Qué ofrece CommUnity?</h2>
+    
+    <!-- Carrusel de Bootstrap modificado -->
+    <div id="communityCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        
+        <!-- Grupo 1: Herramientas para Usuarios (activo por defecto) -->
+       <div class="fondo">
+            <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                <div class="card tool-card">
+                    <div class="card-primary">
+                    <i class="fa-regular fa-file tool-icon d-block"></i>
+                    <h3>Reporta Incidentes y Dificultades</h3>
+                    <p>Facilita la creación de reportes para informar sobre problemas en tu comunidad, ayudando a mantenerla segura y bien gestionada.</p>
+                    </div>
+                </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                <div class="card tool-card">
+                    <div class="card-secundary">
+                    <i class="fa-solid fa-circle-exclamation tool-icon d-block"></i>
+                    <h3>Mantente Informado con Avisos</h3>
+                    <p>Visualiza en tiempo real los avisos y anuncios del administrador, manteniéndote al día con noticias y acciones importantes.</p>
+                    </div>
+                </div>
+     </div>
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card tool-card">
+                <div class="card-tertiary">
+                  <i class="fa-solid fa-chart-simple tool-icon d-block"></i>
+                  <h3>Evalúa la Eficiencia en la Atención</h3>
+                  <p>Consulta la rapidez y efectividad con la que se manejan tus reportes, promoviendo la transparencia y confianza en la gestión comunitaria.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        <!-- Grupo 2: Herramientas para Administradores -->
+        <div class="carousel-item">
+          <div class="row g-4 justify-content-center">
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card tool-card">
+                <div class="card-primary">
+                  <i class="fa-solid fa-list-check tool-icon d-block"></i>
+                  <h3>Gestiona Reportes de la Comunidad</h3>
+                  <p>Recibe, revisa y da seguimiento a los reportes de incidentes y dificultades, asegurando respuestas rápidas y efectivas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card tool-card">
+                <div class="card-secundary">
+                  <i class="fa-solid fa-bullhorn tool-icon d-block"></i>
+                  <h3>Crea y Gestiona Avisospara la comunidad</h3>
+                  <p>Publica avisos importantes para mantener a la comunidad informada y promover la participación activa en la colonia.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card tool-card">
+                <div class="card-tertiary">
+                  <i class="fa-solid fa-chart-pie tool-icon d-block"></i>
+                  <h3>Accede a Estadísticas y Reportes</h3>
+                  <p>Visualiza estadísticas de gestión, analiza el rendimiento y descarga informes para rendición de cuentas y transparencia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Controles del carrusel -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#communityCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#communityCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+    <!-- Footer -->
+    <footer class="footer-custom">
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
