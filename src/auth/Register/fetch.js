@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = "/src/auth/login/Login.html";
         } catch (parseError) {
           alert("Registro exitoso: " + responseText);
-          window.location.href = "/Login.html";
+          window.location.href = "/src/auth/login/Login.html";
         }
       } else {
         try {

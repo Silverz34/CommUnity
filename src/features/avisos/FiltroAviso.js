@@ -10,7 +10,7 @@ async function cargarAnuncios(filtro = 'Todos') {
     let url;
     switch(filtro) {
       case 'recientes':
-        url = 'http://107.22.248.129:7001/ultimos7dias';
+        url = 'http://107.22.248.129:7001/avisos/ultimos7dias';
         break;
       case 'pasados':
         url = 'http://107.22.248.129:7001/avisos/mayores7dias';
@@ -217,39 +217,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-// === FIN DE LA SECCIÓN DE ELIMINACIÓN ===
 
-
-// === SECCIÓN DE MODAL "LEER MÁS" (Corregida) ===
 function activarModalYEventos() {
-  // Crea el modal de "leer más" si no existe. Esto solo debe ocurrir una vez.
   if (!document.getElementById('modal-leer-mas')) {
     crearModal();
   }
-
-  // Ahora, adjuntamos los event listeners a las tarjetas para abrir el modal "leer más".
-  // Hacemos esto DESPUÉS de que las tarjetas se han insertado en el DOM.
-  // El selector correcto para tus tarjetas es '.card-clickable' o '.notice-card'.
-  // He usado '.notice-card' basándome en tu plantilla.
   const clickableCards = document.querySelectorAll('.notice-card.card-clickable');
 
   clickableCards.forEach(card => {
-    // Es crucial remover el listener existente antes de añadir uno nuevo,
-    // si esta función se llama múltiples veces sin limpiar el `innerHTML` del contenedor
-    // O si quieres que la recarga de anuncios adjunte listeners a *nuevas* tarjetas sin interferir
-    // con las viejas si por alguna razón no se eliminaron del todo.
-    // Sin embargo, como `container.innerHTML = '';` vacía el contenedor,
-    // los elementos viejos y sus listeners se van, y los nuevos elementos necesitan nuevos listeners.
-    // Una simple adición es suficiente aquí porque los elementos son nuevos.
 
-    card.addEventListener('click', function handler(e) { // Usamos 'function handler' para poder removerlo
-      // Si el clic fue en el botón de eliminar o en cualquier elemento dentro de él,
-      // la lógica del modal "leer más" NO debe ejecutarse.
+    card.addEventListener('click', function handler(e) { 
       if (e.target.closest('.delete-notice-btn')) {
         return;
       }
-
-      // Si el clic no fue en el botón de eliminar, entonces abrimos el modal de "leer más".
       const titulo = decodeURIComponent(this.dataset.titulo || ''); // 'this' se refiere a la 'card'
       const contenido = decodeURIComponent(this.dataset.contenido || '');
       const admin = decodeURIComponent(this.dataset.admin || '');

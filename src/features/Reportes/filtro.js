@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             urlTotal = `http://107.22.248.129:7001/reportes/total/tipo/${valorFiltro}`;
         } else if (filtroActivo === "seccion") {
             urlReportes = `http://107.22.248.129:7001/reportes/seccion-paginado?id_seccion=${valorFiltro}&page=${paginaActual}&limit=${reportesPorPagina}`;
-            urlTotal = `http://107.22.248.129:7001/total/seccion/${valorFiltro}`;
+            urlTotal = `http://107.22.248.129:7001/reportes/total/seccion/${valorFiltro}`;
         } else {
             // Sin filtros
             urlReportes = `http://107.22.248.129:7001/reportes?page=${paginaActual}&limit=${reportesPorPagina}`;

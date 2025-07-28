@@ -4,7 +4,7 @@ async function cargarAnuncios() {
   container.innerHTML = ''; // Limpiar
 
   try {
-    const response = await fetch('http://107.22.248.129:7001/mensajes-admin');
+    const response = await fetch('http://localhost:7001/mensajes-admin');
     if (!response.ok) throw new Error('Error al obtener los anuncios');
     const anuncios = await response.json();
 

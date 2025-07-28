@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const response = await fetch(`http://107.22.248.129:7001/mensajes-admin/${idAEliminar}`, {
+      const response = await fetch(`http://localhost:7001/mensajes-admin/${idAEliminar}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       });
