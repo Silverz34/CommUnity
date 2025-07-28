@@ -157,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 if (data.es_admin) {
-                    window.location.href = "../features/Gestion/index_admin.html";
+                    window.location.href = "/src/features/Gestion/index_admin.html";
                 } else {
-                    window.location.href = "../features/Reportes/reportes.html";
+                    window.location.href = "/src/features/Reportes/reportes.html";
                 }
             }, 2000);
 

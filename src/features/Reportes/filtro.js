@@ -277,11 +277,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const usuario = usuarios[id_usuario];
         if (!usuario) {
             console.warn(`Usuario con id ${id_usuario} no encontrado, usando imagen por defecto.`);
-            return '/Proyect-web/img/usuario-verificado.png'; // Imagen por defecto
+            return '/img/usuario-verificado.png'; // Imagen por defecto
         }
         return usuario.es_admin === true
-            ? '/Proyect-web/img/icono-admin.png'
-            : '/Proyect-web/img/usuario-verificado.png';
+            ? '/img/icono-admin.png'
+            : '/img/usuario-verificado.png';
     }
 
     // Renderizar cards de reportes
