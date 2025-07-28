@@ -67,18 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // Procesar calles
             if (callesRes.ok) {
                 calles = await callesRes.json();
             }
 
-            // Estados de los reportes (estáticos)
             estados = {
                 1: 'Pendiente',
                 2: 'Resuelto',
             };
 
-            // Tipos de incidente (estáticos)
             incidentes = {
                 1: "Ruido excesivo",
                 2: "Problema de alcohol", 
@@ -94,12 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Función principal para cargar reportes con paginación y filtros
     async function cargarReportes() {
         let urlReportes = "";
         let urlTotal = "";
-        
-        // Construir URLs según el filtro activo
+
         if (filtroActivo === "estado") {
             urlReportes = `http://107.22.248.129:7001/reportes/estado-paginado?id_estado=${valorFiltro}&page=${paginaActual}&limit=${reportesPorPagina}`;
             urlTotal = `http://107.22.248.129:7001/reportes/total/estado/${valorFiltro}`;
@@ -110,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             urlReportes = `http://107.22.248.129:7001/reportes/seccion-paginado?id_seccion=${valorFiltro}&page=${paginaActual}&limit=${reportesPorPagina}`;
             urlTotal = `http://107.22.248.129:7001/reportes/total/seccion/${valorFiltro}`;
         } else {
-            // Sin filtros
             urlReportes = `http://107.22.248.129:7001/reportes?page=${paginaActual}&limit=${reportesPorPagina}`;
             urlTotal = `http://107.22.248.129:7001/reportes/total`;
         }
@@ -170,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Configurar items de filtro
         const filterItems = document.querySelectorAll('.submenu-item');
         filterItems.forEach(item => {
             item.addEventListener('click', function(e) {
@@ -180,12 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Configurar botón de limpiar filtros
         if (clearFiltersBtn) {
             clearFiltersBtn.addEventListener('click', clearFilters);
         }
 
-        // Configurar evento de cambio de página
         if (paginacionComponent) {
             paginacionComponent.addEventListener('page-change', e => {
                 paginaActual = e.detail.page;
@@ -194,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Aplicar filtro
+
     function applyFilter(filterElement) {
         if (!filterElement || !reportsContainer) return;
         
@@ -214,8 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let valor = filterElement.getAttribute('data-value') || 
                    filterElement.getAttribute('data-id') ||
                    filterElement.getAttribute('href');
-        
-        // Limpiar el valor si contiene # o está vacío
         if (valor === '#' || !valor || valor.trim() === '') {
             console.warn('Valor de filtro inválido:', valor, 'para elemento:', filterElement);
             return;
